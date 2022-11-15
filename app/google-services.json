@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "539282212319",
+    "project_id": "autofarm-b8fbb",
+    "storage_bucket": "autofarm-b8fbb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:539282212319:android:27733f55f77495eb2cf06a",
+        "android_client_info": {
+          "package_name": "com.nicole.autofarm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "539282212319-v7e4ak0qt2511qrcnc75o87ud5g8rlpt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBko6UGYp7k8_zHZZS-YcJYQZBojkMzaM8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "539282212319-v7e4ak0qt2511qrcnc75o87ud5g8rlpt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
