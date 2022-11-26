@@ -4,15 +4,260 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/deep_blue"
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/phosphorousId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="56dp"
+        android:layout_weight="1"
+        android:text="70"
+        android:textColor="@color/light_gray"
+        android:textSize="34sp"
+        app:layout_constraintStart_toEndOf="@+id/nitrogenId"
+        app:layout_constraintTop_toBottomOf="@+id/templabel" />
+
+    <TextView
+        android:id="@+id/nitrogenId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="56dp"
+        android:layout_weight="1"
+        android:text="40"
+        android:textColor="@color/light_gray"
+        android:textSize="34sp"
+        app:layout_constraintStart_toStartOf="@+id/TempId"
+        app:layout_constraintTop_toBottomOf="@+id/templabel" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="pH"
+        android:textColor="@color/light_gray"
+        app:layout_constraintEnd_toEndOf="@+id/pHId"
+        app:layout_constraintHorizontal_bias="0.551"
+        app:layout_constraintStart_toStartOf="@+id/pHId"
+        app:layout_constraintTop_toBottomOf="@+id/pHId" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="K"
+        android:textColor="@color/light_gray"
+        app:layout_constraintEnd_toEndOf="@+id/potassiumId"
+        app:layout_constraintHorizontal_bias="0.655"
+        app:layout_constraintStart_toStartOf="@+id/potassiumId"
+        app:layout_constraintTop_toBottomOf="@+id/potassiumId" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="P"
+        android:textColor="@color/light_gray"
+        app:layout_constraintEnd_toEndOf="@+id/phosphorousId"
+        app:layout_constraintHorizontal_bias="0.586"
+        app:layout_constraintStart_toStartOf="@+id/phosphorousId"
+        app:layout_constraintTop_toBottomOf="@+id/phosphorousId" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="N"
+        android:textColor="@color/light_gray"
+        app:layout_constraintEnd_toEndOf="@+id/nitrogenId"
+        app:layout_constraintHorizontal_bias="0.571"
+        app:layout_constraintStart_toStartOf="@+id/nitrogenId"
+        app:layout_constraintTop_toBottomOf="@+id/nitrogenId" />
+
+    <TextView
+        android:id="@+id/pHId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:layout_weight="1"
+        android:text="4.7"
+        android:textColor="@color/light_gray"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView11"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <Button
+        android:id="@+id/statusbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="ShowSoilReport"
+        android:text="Generate Report"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.542"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.698"
+        tools:ignore="UsingOnClickInXml" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:text="Dashboard"
+        android:textColor="@color/light_gray"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.137"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5"
+        app:layout_constraintVertical_bias="0.034" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="167dp"
+        android:layout_height="71dp"
+        android:layout_marginTop="12dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/textView2">
+
+        <TextView
+            android:id="@+id/siteName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Site: Machakos Ranch"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Crop: Maize"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Stage: Germination"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/tempMeasurement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:paddingStart="0dp"
+        android:text="°C"
+        android:textColor="@color/light_gray"
+        android:textSize="34sp"
+        app:layout_constraintStart_toEndOf="@+id/TempId"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <TextView
+        android:id="@+id/TempId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="56dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:paddingEnd="0dp"
+        android:text="23"
+        android:textColor="@color/light_gray"
+        android:textSize="34sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <TextView
+        android:id="@+id/HumidityId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="56dp"
+        android:layout_weight="1"
+        android:text="78"
+        android:textColor="@color/light_gray"
+        android:textSize="34sp"
+        app:layout_constraintStart_toEndOf="@+id/tempMeasurement"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Humidity"
+        android:textColor="@color/light_gray"
+        app:layout_constraintEnd_toEndOf="@+id/textView11"
+        app:layout_constraintStart_toStartOf="@+id/HumidityId"
+        app:layout_constraintTop_toBottomOf="@+id/HumidityId" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:text="%"
+        android:textColor="@color/light_gray"
+        android:textSize="34sp"
+        app:layout_constraintStart_toEndOf="@+id/HumidityId"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <TextView
+        android:id="@+id/potassiumId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:layout_weight="1"
+        android:text="60"
+        android:textColor="@color/light_gray"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="@+id/pHId"
+        app:layout_constraintHorizontal_bias="0.75"
+        app:layout_constraintStart_toEndOf="@+id/phosphorousId"
+        app:layout_constraintTop_toBottomOf="@+id/templabel" />
+
+    <TextView
+        android:id="@+id/templabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="Temperature"
+        android:textColor="@color/light_gray"
+        app:layout_constraintEnd_toEndOf="@+id/tempMeasurement"
+        app:layout_constraintStart_toStartOf="@+id/TempId"
+        app:layout_constraintTop_toBottomOf="@+id/TempId" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="184dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo_linear_no_background" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
