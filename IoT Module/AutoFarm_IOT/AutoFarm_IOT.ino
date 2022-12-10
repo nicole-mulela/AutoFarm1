@@ -11,10 +11,17 @@
 #define DHTTYPE DHT11
 DHT dht(DHTPIN, DHTTYPE);
 
+#define SensorPin A0          //pH meter Analog output to Arduino Analog Input 0
+unsigned long int avgValue;  //Store the average value of the sensor feedback
+float b, phValue;
+int buf[10],temp;
+#define offset -0.03
+
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(115200);
   dht.begin();
+  
   
   WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
   Serial.print("Connecting to ");
@@ -35,6 +42,7 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
+  
   float h =dht.readHumidity();
   float t =dht.readTemperature();
 
@@ -43,20 +51,53 @@ void loop() {
     Serial.println(F("Failed to read from DHT sensor! "));
     return;
   }
+
+  //read from PH sensor
+  for(int i=0;i<10;i++)       //Get 10 sample value from the sensor for smooth the value
+  { 
+    buf[i]=analogRead(SensorPin);
+  }
+  for(int i=0;i<9;i++)        //sort the analog from small to large
+  {
+    for(int j=i+1;j<10;j++)
+    {
+      if(buf[i]>buf[j])
+      {
+        temp=buf[i];
+        buf[i]=buf[j];
+        buf[j]=temp;
+      }
+    }
+  }  
+  /// PH NEEDS CALIBRATION
+  avgValue=0;
+  for(int i=2;i<8;i++)                      //take the average value of 6 center sample
+    avgValue+=buf[i];
+  phValue=(float)avgValue/1023*5; //convert the analog into millivolt
+  phValue=(0.3*phValue+offset)-1.98;                      //convert the millivolt into pH value
+  
   
   Serial.print("Humidity: ");
   Serial.print(h);
+  Serial.print("%");
   String fireHumid = String(h) + String("%");
 
-  Serial.print("% Temperature: ");
+  Serial.print(" Temperature: ");
   Serial.print(t);
-  Serial.println("°C");
+Serial.print("°C");  
   String fireTemp =String(t) + String("°C");
+
+  Serial.print(" pH:");  
+  Serial.print(phValue,2);
+  Serial.println(" ");
+  String firePH =String(phValue);  
+
   delay(5000);
 
 
-  Firebase.pushString("/DHT11/Humidity", fireHumid);
-  Firebase.pushString("/DHT11/Temperature", fireTemp);
+  Firebase.setString("/DHT11/Humidity", fireHumid);
+  Firebase.setString("/DHT11/Temperature", fireTemp);
+  Firebase.setString("/DHT11/PH", firePH);
     if (Firebase.failed())
     {
       Serial.print("pushing / logs failed: ");
