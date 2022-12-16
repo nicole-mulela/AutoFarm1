@@ -80,12 +80,12 @@ void loop() {
   Serial.print("Humidity: ");
   Serial.print(h);
   Serial.print("%");
-  String fireHumid = String(h) + String("%");
+  String fireHumid = String(h);
 
   Serial.print(" Temperature: ");
   Serial.print(t);
 Serial.print("°C");  
-  String fireTemp =String(t) + String("°C");
+  String fireTemp =String(t);
 
   Serial.print(" pH:");  
   Serial.print(phValue,2);
